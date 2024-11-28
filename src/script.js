@@ -1,5 +1,5 @@
 // GitHub raw link to the Excel file
-const EXCEL_FILE_URL = 'https://raw.githubusercontent.com/<username>/forms-results/main/forms-data.xlsx';
+const EXCEL_FILE_URL = 'https://github.com/FellSt220132/ITP-KI_Umfrage/blob/Test-Build1/src/forms-data.xlsx';
 
 async function fetchAndDisplayExcelData() {
 try {
