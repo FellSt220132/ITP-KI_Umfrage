@@ -11,3 +11,7 @@ Basic Code
 Issues with Repo visibility (no RAW Link if the Repo is private)
 
 Pushed my Code to Main. WHERE THE FUCK DID IT GO? I HATE GIT RN :(
+
+Edit: Found a Brach i deleted still active. I hate Git. And Myself
+
+Cats are chill ig
