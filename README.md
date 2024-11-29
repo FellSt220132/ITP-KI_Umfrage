@@ -14,18 +14,24 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
   + Design
   + Forms
 
-### Version Log
+### ALPHA
 
-#### Version 0.1
+#### Version A-1.0
 
-+ First Push
-
-#### Version 1.0
-
-+ First Beta
++ First Build
 
 + WARNING FOR DEVS:
 
   + You need a Python Module to Convert Excel Files
 
   + pip install flask pandas openpyxl
+
+### BETA
+
+#### Version B-1.0
+
++ Finished Structure
+
++ Finished Coding and Designing
+
++ Every change from here probably will be maintenance and minor upgrades.
