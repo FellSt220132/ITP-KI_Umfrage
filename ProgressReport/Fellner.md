@@ -1,8 +1,8 @@
 # Fellner Progress Report
 
-28/11/2024
+## 28/11/2024
 
-Made a Branch for my Test Build. 
+Made a Branch for my Test Build.
 
 Basic File Structure
 
@@ -21,3 +21,15 @@ Last push today, or INSY will absolutely destroy me tomorrow.
 Thats about it. With Git
 
 Shakespeare out
+
+## 29/11/2024
+
+Dev Note: I am locked tf in.
+
+Made GitHub Page.
+
+Implemented Python Code for Converting Spreadsheet
+
+Started Coding the Backend
+
+@Wong: Machst du bitte das Frontend, i will nichts mehr mit CSS machen (Trauma von Prof. Schmidt)
