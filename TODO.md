@@ -11,3 +11,7 @@
     + Fix Formatting
 
     + Make the CSS look coole
+ 
++ Git
+
+    + Setup Git Pages    
