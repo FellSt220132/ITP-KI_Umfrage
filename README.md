@@ -24,10 +24,8 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + First Beta
 
-+ WARING FOR DEVS:
++ WARNING FOR DEVS:
 
   + You need a Python Module to Convert Excel Files
 
   + pip install flask pandas openpyxl
-
-+ GitHub Pages implemented

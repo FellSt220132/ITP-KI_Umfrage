@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Path to the JSON file that will be created by Python script
-    const jsonFilePath = "data.json";  // Adjusted to the root level
+document.addEventListener("DOMContentLoaded", function () {
+    const jsonFilePath = "data.json";
 
-    // Function to fetch and process the JSON file
     function loadData() {
         fetch(jsonFilePath)
             .then(response => {
@@ -12,8 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 return response.json();
             })
             .then(data => {
-                console.log("Data loaded successfully:", data);
-                // Process the data and display rankings
                 const rankings = processData(data);
                 displayRankings(rankings);
             })
@@ -23,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-    // Function to process the data and create rankings
     function processData(data) {
         const categories = {
             "In welcher Klasse sind sie zur Zeit?": {},
@@ -32,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
             "Welches dieser KI - Tools nutzen sie am häufigsten?": {}
         };
 
-        // Process each category in the data
         data.forEach(response => {
             Object.keys(categories).forEach(category => {
                 const answer = response[category];
@@ -42,14 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        // Create rankings for each category
         const rankings = {};
         Object.keys(categories).forEach(category => {
             const answers = categories[category];
             const totalResponses = data.length;
             const sortedAnswers = Object.entries(answers)
                 .sort((a, b) => b[1] - a[1])
-                .slice(0, 10); // Top 10 answers
+                .slice(0, 3);
             rankings[category] = sortedAnswers.map(([answer, count]) => ({
                 answer,
                 count,
@@ -60,29 +53,26 @@ document.addEventListener("DOMContentLoaded", function() {
         return rankings;
     }
 
-    // Function to display the rankings on the page
     function displayRankings(rankings) {
         let output = '';
         Object.keys(rankings).forEach(category => {
             const categoryRanking = rankings[category];
-            output += `<div class="category"><h2>${category}</h2>`;
-            categoryRanking.forEach((rank, index) => {
-                output += `
-                    <div class="rank-item">
-                        <h3>Rank ${index + 1}</h3>
-                        <p class="rank-number"><strong>${rank.answer}</strong></p>
-                        <p>Count: ${rank.count}</p>
-                        <p>Percentage: ${rank.percentage}%</p>
-                    </div>
-                `;
-            });
-            output += `</div>`;
+            output += `<div class="category">
+                <h2>${category}</h2>
+                <div class="rank-item-container">
+                    ${categoryRanking.map((rank, index) => `
+                        <div class="rank-item">
+                            <h3>Rank ${index + 1}</h3>
+                            <p class="rank-number"><strong>${rank.answer}</strong></p>
+                            <p>Count: ${rank.count}</p>
+                            <p>Percentage: ${rank.percentage}%</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
         });
-
-        // Add the rankings to the page
         document.getElementById('ranking').innerHTML = output;
     }
 
-    // Load the data when the page is ready
     loadData();
 });
