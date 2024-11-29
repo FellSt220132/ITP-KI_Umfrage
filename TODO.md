@@ -1,17 +1,11 @@
 # TODO List
 
-+ Converter
++ If you find Bugs, List them here :)
 
-    + Code does not find the Excel File w/o absolute Path
+## Stefan
 
-    + Test with multiple Entries in Excel File
++ Fix absolute Path Bug in Converter
 
-+ Website
+## Victor
 
-    + Fix Formatting
-
-    + Make the CSS look coole
- 
-+ Git
-
-    + Setup Git Pages    
++ ...
