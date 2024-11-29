@@ -24,12 +24,16 @@ Shakespeare out
 
 ## 29/11/2024
 
-Dev Note: I am locked tf in.
-
-Made GitHub Page.
+Made GitHub Page. (Failed. Miserably.)
 
 Implemented Python Code for Converting Spreadsheet
 
 Started Coding the Backend
 
-@Wong: Machst du bitte das Frontend, i will nichts mehr mit CSS machen (Trauma von Prof. Schmidt)
+Finished Back- and Frontend
+
+CSS still looks a little goofy, will fix later.
+
+More Tests, especially for 500+ votes coming soon, will probably make a test folder with images to save space
+
+Updated the necessary Markdown Files
