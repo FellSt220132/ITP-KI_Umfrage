@@ -37,3 +37,9 @@ CSS still looks a little goofy, will fix later.
 More Tests, especially for 500+ votes coming soon, will probably make a test folder with images to save space
 
 Updated the necessary Markdown Files
+
+## 2/12/2024
+
+GitHub Pages reset
+
+SOME-FUCKING-HOW the Website only works if i use the "go live" VSCode extension. Need to fix that
