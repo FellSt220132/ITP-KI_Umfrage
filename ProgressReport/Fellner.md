@@ -43,3 +43,7 @@ Updated the necessary Markdown Files
 GitHub Pages reset
 
 SOME-FUCKING-HOW the Website only works if i use the "go live" VSCode extension. Need to fix that
+
+## 3/12/2024
+
+Trying some Server Functions

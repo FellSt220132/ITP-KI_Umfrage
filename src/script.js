@@ -1,21 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     const jsonFilePath = "data.json";
 
+    // Load rankings
     function loadData() {
         fetch(jsonFilePath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
+            .then((response) => response.json())
+            .then((data) => {
                 const rankings = processData(data);
                 displayRankings(rankings);
             })
-            .catch(error => {
-                console.error('Error loading the JSON file:', error);
-                document.getElementById('ranking').innerHTML = `<p class="no-data">No data available.</p>`;
+            .catch((error) => {
+                console.error("Error loading the JSON file:", error);
+                document.getElementById("ranking").innerHTML = `<p class="no-data">No data available.</p>`;
             });
     }
 
@@ -24,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
             "In welcher Klasse sind sie zur Zeit?": {},
             "Wie oft benutzen sie ChatGPT / andere KI Tools?": {},
             "Wie wahrscheinlich ist es, dass sie eine KI im Unterricht verwenden?": {},
-            "Welches dieser KI - Tools nutzen sie am häufigsten?": {}
+            "Welches dieser KI - Tools nutzen sie am häufigsten?": {},
         };
 
-        data.forEach(response => {
-            Object.keys(categories).forEach(category => {
+        data.forEach((response) => {
+            Object.keys(categories).forEach((category) => {
                 const answer = response[category];
                 if (answer) {
                     categories[category][answer] = (categories[category][answer] || 0) + 1;
@@ -37,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         const rankings = {};
-        Object.keys(categories).forEach(category => {
+        Object.keys(categories).forEach((category) => {
             const answers = categories[category];
             const totalResponses = data.length;
             const sortedAnswers = Object.entries(answers)
@@ -46,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             rankings[category] = sortedAnswers.map(([answer, count]) => ({
                 answer,
                 count,
-                percentage: ((count / totalResponses) * 100).toFixed(1)
+                percentage: ((count / totalResponses) * 100).toFixed(1),
             }));
         });
 
@@ -54,25 +50,73 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function displayRankings(rankings) {
-        let output = '';
-        Object.keys(rankings).forEach(category => {
+        let output = "";
+        Object.keys(rankings).forEach((category) => {
             const categoryRanking = rankings[category];
-            output += `<div class="category">
-                <h2>${category}</h2>
-                <div class="rank-item-container">
-                    ${categoryRanking.map((rank, index) => `
-                        <div class="rank-item">
-                            <h3>Rank ${index + 1}</h3>
-                            <p class="rank-number"><strong>${rank.answer}</strong></p>
-                            <p>Count: ${rank.count}</p>
-                            <p>Percentage: ${rank.percentage}%</p>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>`;
+            output += `<div class="category"><h2>${category}</h2><div class="rank-item-container">`;
+            categoryRanking.forEach((rank) => {
+                output += `
+                    <div class="rank-item">
+                        <p class="rank-number">${rank.answer}</p>
+                        <p>Count: ${rank.count}</p>
+                        <p>Percentage: ${rank.percentage}%</p>
+                    </div>
+                `;
+            });
+            output += `</div></div>`;
         });
-        document.getElementById('ranking').innerHTML = output;
+
+        document.getElementById("ranking").innerHTML = output;
     }
 
+    // Voting functionality
+    function initializeVoting() {
+        const voteButtons = document.querySelectorAll(".vote-choice");
+        const voteStatus = document.getElementById("vote-status");
+
+        // Check if user has already voted
+        const voted = localStorage.getItem("voted");
+        if (voted) {
+            voteStatus.textContent = `You voted: ${voted.toUpperCase()}`;
+            disableVoteButtons();
+        } else {
+            voteButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    const choice = this.getAttribute("data-choice");
+                    submitVote(choice);
+                });
+            });
+        }
+    }
+
+    function submitVote(choice) {
+        fetch("/vote", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ choice }),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    localStorage.setItem("voted", choice);
+                    document.getElementById("vote-status").textContent = `You voted: ${choice.toUpperCase()}`;
+                    disableVoteButtons();
+                } else {
+                    alert("You have already voted!");
+                }
+            })
+            .catch((error) => console.error("Error submitting vote:", error));
+    }
+
+    function disableVoteButtons() {
+        document.querySelectorAll(".vote-choice").forEach((button) => {
+            button.disabled = true;
+        });
+    }
+
+    // Initialize page
     loadData();
+    initializeVoting();
 });
