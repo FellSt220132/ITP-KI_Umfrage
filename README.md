@@ -35,3 +35,14 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 + Finished Coding and Designing
 
 + Every change from here probably will be maintenance and minor upgrades.
+
+
+### INDEV
+
+#### Version IB-1.5
+
++ Automatic Update of results
+
++ Filter Functions for End Results (Filter by Class, etc.)
+
++ GitHub Pages Implementation (i have a version saved locally that should work, but i need to fix some bugs first)
