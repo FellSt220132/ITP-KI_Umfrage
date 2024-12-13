@@ -2,7 +2,7 @@
 
 ## By Stefan Fellner
 
-+ Add your Excel File to this Folder (ANSWERS TO OUR MS FORM)
++ Add your Excel File to this Folder (ANSWERS TO OUR MS FORM, downloaded)
 
 + Name it responses.xlsx or change the Python File, preferably not the latter
 
