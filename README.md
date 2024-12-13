@@ -20,7 +20,7 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + First Build
 
-+ WARNING FOR DEVS:
++ INFO FOR DEVS:
 
   + You need a Python Module to Convert Excel Files
 
