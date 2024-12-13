@@ -37,13 +37,18 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + Every change from here probably will be maintenance and minor upgrades.
 
+#### Version B-1.5
 
-### INDEV
++ First Test (~20 Answers) - SUCCESSFUL
 
-#### Version IB-1.5
++ Bug Fixes (minor)
 
-+ Automatic Update of results
+### Version currently in Development
 
-+ Filter Functions for End Results (Filter by Class, etc.)
++ Fix EXCEL - JSON Converter Bug (See Todo.md)
 
-+ GitHub Pages Implementation (i have a version saved locally that should work, but i need to fix some bugs first)
++ Replace Placeholder Design
+
++ Maybe Filter Troll answers (if we have time)
+
++ GitHub Pages
