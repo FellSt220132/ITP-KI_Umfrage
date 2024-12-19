@@ -37,3 +37,18 @@ Updated the necessary Markdown Files
 GitHub Pages reset
 
 Somehow the Website only works if i use the "go live" VSCode extension. Need to fix that
+
+## 19/12/2024
+
+Had to reset Repo because changes were made that would not fit to the task
+
+Listed here:
+
++ Multiple JS Frameworks
++ TailwindCSS
+
+Removed because:
+
++ Task is to use AI
+
+Will implement GitHub Pages today
