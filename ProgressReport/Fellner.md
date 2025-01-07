@@ -52,3 +52,7 @@ Removed because:
 + Task is to use AI
 
 Will implement GitHub Pages today
+
+## 07/01/2025
+
+Removed "DevNote.md" because no one needed it
