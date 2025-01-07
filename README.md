@@ -8,12 +8,10 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 ## Team
 
 + Stefan Fellner
-  + Coding
   + Repo Verwaltung
 
 + Viktor Wong
-  + Design
-  + Forms
+
 
 ### ALPHA
 
