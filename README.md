@@ -43,18 +43,6 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + Bug Fixes (minor)
 
-### Version currently in Development
+#### Version B-1.6
 
-+ Fix EXCEL - JSON Converter Bug (See Todo.md)
-
-+ Replace Placeholder Design
-
-+ Maybe Filter Troll answers (if we have time)
-
-+ GitHub Pages
-
-+ More Questions
-
-  + Fachrichtungen
-
-  + etc.
++ Now with Filter for Answers (Client Side)

@@ -15,9 +15,19 @@
             <p class="subheading">Based on responses from students</p>
         </header>
 
-        <section id="ranking" class="ranking-container">
-            <!-- Rankings will be dynamically loaded here -->
-        </section>
+        <div class="filter-container">
+            <label for="branchSelect">Wählen Sie einen Zweig:</label>
+            <select id="branchSelect">
+                <option value="all">Alle Ergebnisse</option>
+                <option value="ET">ET</option>
+                <option value="IT">IT</option>
+                <option value="ME">ME</option>
+                <option value="MB">MB</option>
+                <option value="WI">WI</option>
+            </select>
+        </div>
+
+        <section id="ranking" class="ranking-container"></section>
     </div>
 
     <script src="script.js"></script>

@@ -127,3 +127,48 @@ header .subheading {
         margin-bottom: 15px;
     }
 }
+
+/* Filter container */
+.filter-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-container label {
+    font-size: 1.4em;
+    color: #ffffff;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Styling for the select dropdown */
+.filter-container select {
+    padding: 12px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #4f6d7a, #3c5b69);
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    width: 250px;
+}
+
+/* Darker font color for the select dropdown */
+.filter-container select {
+    color: #333333;
+}
+
+/* Hover effect for the select dropdown */
+.filter-container select:hover {
+    background: linear-gradient(145deg, #3c5b69, #4f6d7a);
+    transform: scale(1.05);
+}
+
+/* Focus effect for the select dropdown */
+.filter-container select:focus {
+    outline: none;
+    background: linear-gradient(145deg, #4f6d7a, #3c5b69);
+    box-shadow: 0 0 8px rgba(0, 206, 255, 0.6);
+}

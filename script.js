@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const jsonFilePath = "data.json";
+    let allData = [];
+    let filteredData = [];
 
     function loadData() {
         fetch(jsonFilePath)
@@ -10,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then(data => {
-                const rankings = processData(data);
+                allData = data;
+                filteredData = data;
+                const rankings = processData(filteredData);
                 displayRankings(rankings);
             })
             .catch(error => {
@@ -21,10 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processData(data) {
         const categories = {
+            "In welchen Zweig sind sie zur Zeit?": {},
             "In welcher Klasse sind sie zur Zeit?": {},
             "Wie oft benutzen sie ChatGPT / andere KI Tools?": {},
             "Wie wahrscheinlich ist es, dass sie eine KI im Unterricht verwenden?": {},
             "Welches dieser KI - Tools nutzen sie am häufigsten?": {}
+            //PLATZ FÜR ZUSÄTZLICHE FRAGEN
         };
 
         data.forEach(response => {
@@ -73,6 +79,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         document.getElementById('ranking').innerHTML = output;
     }
+
+    function filterDataByBranch(branch) {
+        if (branch === 'all') {
+            filteredData = allData;
+        } else {
+            filteredData = allData.filter(response => response["In welchen Zweig sind sie zur Zeit?"] === branch);
+        }
+        const rankings = processData(filteredData);
+        displayRankings(rankings);
+    }
+
+    document.getElementById('branchSelect').addEventListener('change', function (event) {
+        const selectedBranch = event.target.value;
+        filterDataByBranch(selectedBranch);
+    });
 
     loadData();
 });
