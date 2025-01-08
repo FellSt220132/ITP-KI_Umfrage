@@ -49,14 +49,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const sortedAnswers = Object.entries(answers)
                 .sort((a, b) => b[1] - a[1])
                 .slice(0, 3);
-            rankings[category] = sortedAnswers.map(([answer, count]) => ({
+            rankings[category] = sortedAnswers.map(([answer, count], index) => ({
                 answer,
                 count,
-                percentage: ((count / totalResponses) * 100).toFixed(1)
+                percentage: ((count / totalResponses) * 100).toFixed(1),
+                rankClass: getRankClass(index)
             }));
         });
 
         return rankings;
+    }
+
+    function getRankClass(index) {
+        switch (index) {
+            case 0: return 'gold';
+            case 1: return 'silver';
+            case 2: return 'bronze';
+            default: return '';
+        }
     }
 
     function displayRankings(rankings) {
@@ -68,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="rank-item-container">
                     ${categoryRanking.map((rank, index) => `
                         <div class="rank-item">
-                            <h3>Rank ${index + 1}</h3>
+                            <h3 class="${rank.rankClass}">${getRankText(index)}</h3>
                             <p class="rank-number"><strong>${rank.answer}</strong></p>
                             <p>Count: ${rank.count}</p>
                             <p>Percentage: ${rank.percentage}%</p>
@@ -78,6 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>`;
         });
         document.getElementById('ranking').innerHTML = output;
+    }
+
+    function getRankText(index) {
+        switch (index) {
+            case 0: return 'Gold';
+            case 1: return 'Silver';
+            case 2: return 'Bronze';
+            default: return '';
+        }
     }
 
     function filterDataByBranch(branch) {

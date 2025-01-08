@@ -13,6 +13,12 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + Viktor Wong
 
+## Notes
+
++ Spam / Trolling Filter
+
+  + Nicht nötig, da nur Top 3 der Antworten gezeigt werden
+
 ### ALPHA
 
 #### Version A-1.0
