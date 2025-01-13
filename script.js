@@ -1,3 +1,5 @@
+// The assignment was to create all of this with AI, please don't hurt me Werner! :(
+
 document.addEventListener("DOMContentLoaded", function () {
     const jsonFilePath = "data.json";
     let allData = [];
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getRankClass(index) {
         switch (index) {
-            case 0: return 'gold';
+            case 0: return 'Gold';
             case 1: return 'silver';
             case 2: return 'bronze';
             default: return '';
