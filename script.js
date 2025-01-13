@@ -49,8 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const answers = categories[category];
             const totalResponses = data.length;
             const sortedAnswers = Object.entries(answers)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 3);
+                .sort((a, b) => b[1] - a[1]) // Sort answers based on vote count
+                .slice(0, 3); // Get top 3 answers
+
+            // Assign rankings based on sorted vote count
             rankings[category] = sortedAnswers.map(([answer, count], index) => ({
                 answer,
                 count,
@@ -63,10 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function getRankClass(index) {
+        // Assign ranks based on the sorted order of votes
         switch (index) {
-            case 0: return 'Gold';
-            case 1: return 'silver';
-            case 2: return 'bronze';
+            case 0: return 'Gold';     // Gold (1st place) will be second (center)
+            case 1: return 'silver';   // Silver (2nd place) will be on the left
+            case 2: return 'bronze';   // Bronze (3rd place) will be on the right
             default: return '';
         }
     }
@@ -78,14 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
             output += `<div class="category">
                 <h2>${category}</h2>
                 <div class="rank-item-container">
-                    ${categoryRanking.map((rank, index) => `
-                        <div class="rank-item">
-                            <h3 class="${rank.rankClass}">${getRankText(index)}</h3>
-                            <p class="rank-number"><strong>${rank.answer}</strong></p>
-                            <p>Count: ${rank.count}</p>
-                            <p>Percentage: ${rank.percentage}%</p>
-                        </div>
-                    `).join('')}
+                    ${categoryRanking.map((rank, index) => {
+                        let positionClass = '';
+                        if (index === 0) positionClass = 'center-rank'; // Gold in the center
+                        if (index === 1) positionClass = 'left-rank'; // Silver on the left
+                        if (index === 2) positionClass = 'right-rank'; // Bronze on the right
+                        
+                        return `
+                            <div class="rank-item ${positionClass}">
+                                <h3 class="${rank.rankClass}">${getRankText(index)}</h3>
+                                <p class="rank-number"><strong>${rank.answer}</strong></p>
+                                <p>Count: ${rank.count}</p>
+                                <p>Percentage: ${rank.percentage}%</p>
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
             </div>`;
         });

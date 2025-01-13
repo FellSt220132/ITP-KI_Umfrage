@@ -119,10 +119,21 @@ header .subheading {
 /* Layout for rank items */
 .rank-item-container {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
-    justify-content: center;
     width: 100%;
-    flex-wrap: wrap;
+}
+
+.left-rank {
+    order: 1; /* Silver (2nd place) will be on the left */
+}
+
+.center-rank {
+    order: 2; /* Gold (1st place) will be second (center) */
+}
+
+.right-rank {
+    order: 3; /* Bronze (3rd place) will be on the right */
 }
 
 /* Responsive Design */
