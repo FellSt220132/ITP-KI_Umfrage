@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function getRankClass(index) {
         // Assign ranks based on the sorted order of votes
         switch (index) {
-            case 0: return 'Gold';     // Gold (1st place) will be second (center)
+            case 0: return 'gold';     // Gold (1st place) will be second (center)
             case 1: return 'silver';   // Silver (2nd place) will be on the left
             case 2: return 'bronze';   // Bronze (3rd place) will be on the right
             default: return '';
