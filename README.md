@@ -17,7 +17,9 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 
 + Spam / Trolling Filter
 
-  + Nicht nötig, da nur Top 3 der Antworten gezeigt werden
+  + Nicht nötig, da nur Top 3 der Antworten gezeigt werden?
+
+  + Als Nebenprojekt beibehalten
 
 + New Push / Merge / Branch System
 
