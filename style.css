@@ -1,3 +1,30 @@
+/* Base Styles with CSS Variables */
+:root {
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --subtext-color: #777;
+    --highlight-color: #999;
+    --gold-color: #FFD700;
+    --silver-color: #C0C0C0;
+    --bronze-color: #cd7f32;
+    --card-background: #fff;
+    --card-text-color: #333;
+    --card-subtext-color: #666;
+}
+
+[data-theme="dark"] {
+    --background-color: #1e1e2e;
+    --text-color: #f4f4f9;
+    --subtext-color: #bbb;
+    --highlight-color: #ccc;
+    --gold-color: #ffcc00;
+    --silver-color: #d9d9d9;
+    --bronze-color: #b87333;
+    --card-background: #2b2b2b;
+    --card-text-color: #f4f4f9;
+    --card-subtext-color: #aaa;
+}
+
 /* Reset some defaults */
 * {
     margin: 0;
@@ -8,8 +35,8 @@
 /* Body and page container */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 0;
     margin: 0;
 }
@@ -31,24 +58,25 @@ header {
 header h1 {
     font-size: 3em;
     font-weight: 600;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 0.3em;
 }
 
 header .subheading {
     font-size: 1.1em;
-    color: #777;
+    color: var(--subtext-color);
 }
 
 /* Filter section */
 .filter-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.filter-container label {
+.filter-container label,
+.theme-switcher label {
     font-size: 1.2em;
-    color: #555;
+    color: var(--text-color);
     font-weight: 500;
     margin-right: 10px;
 }
@@ -58,21 +86,67 @@ header .subheading {
     font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #fff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     width: 250px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .filter-container select:hover {
-    border-color: #007BFF;
+    border-color: var(--highlight-color);
     background-color: #f0f0f0;
 }
 
 .filter-container select:focus {
     outline: none;
-    border-color: #007BFF;
+    border-color: var(--highlight-color);
+}
+
+/* Toggle switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4c5baf;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
 /* Rankings section */
@@ -85,13 +159,14 @@ header .subheading {
 
 /* Individual ranking item (cards) */
 .rank-item {
-    background-color: #fff;
+    background-color: var(--card-background);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--card-text-color);
 }
 
 .rank-item:hover {
@@ -101,19 +176,31 @@ header .subheading {
 
 .rank-item h3 {
     font-size: 1.5em;
-    color: #333;
+    color: var(--card-text-color);
     margin-bottom: 10px;
 }
 
 .rank-item p {
     font-size: 1.1em;
-    color: #666;
+    color: var(--card-subtext-color);
 }
 
 .rank-item .rank-number {
     font-weight: 600;
     font-size: 1.3em;
-    color: #007BFF;
+    color: var(--highlight-color);
+}
+
+.rank-item .gold {
+    color: var(--gold-color);
+}
+
+.rank-item .silver {
+    color: var(--silver-color);
+}
+
+.rank-item .bronze {
+    color: var(--bronze-color);
 }
 
 /* Layout for rank items */
@@ -125,15 +212,15 @@ header .subheading {
 }
 
 .left-rank {
-    order: 1; /* Silver (2nd place) will be on the left */
+    order: 1;
 }
 
 .center-rank {
-    order: 2; /* Gold (1st place) will be second (center) */
+    order: 2;
 }
 
 .right-rank {
-    order: 3; /* Bronze (3rd place) will be on the right */
+    order: 3;
 }
 
 /* Responsive Design */
@@ -157,23 +244,4 @@ header .subheading {
         width: 100%;
         margin-bottom: 20px;
     }
-}
-
-/* Medal Styles */
-.rank-item .rank-number {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #333;
-}
-
-.rank-item .gold {
-    color: #FFD700;
-}
-
-.rank-item .silver {
-    color: #C0C0C0;
-}
-
-.rank-item .bronze {
-    color: #cd7f32;
 }
