@@ -11,7 +11,7 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
 + Stefan Fellner
   + Repo Verwaltung
 
-+ Viktor Wong
++ Victor Wong
 
 ## Notes
 
