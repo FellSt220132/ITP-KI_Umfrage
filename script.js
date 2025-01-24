@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const jsonFilePath = "data.json";
+    const jsonFilePath = "data.json"; // Path to your JSON data file
     let allData = [];
     let filteredData = [];
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(data => {
                 allData = data;
-                filteredData = data;
+                filteredData = data; // Default to all data
                 const rankings = processData(filteredData);
                 displayRankings(rankings);
             })
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "Bronze", class: "bronze" },
     ];
 
+    // Process the data for each question and return rankings
     function processData(data) {
         const categories = {
             "In welchen Zweig sind sie zur Zeit?": {},
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const totalResponses = data.length;
             const sortedAnswers = Object.entries(answers)
                 .sort((a, b) => b[1] - a[1])
-                .slice(0, 3);
+                .slice(0, 3); // Top 3 answers
 
             rankings[category] = rankInfo.map((rank, index) => {
                 if (sortedAnswers[index]) {
@@ -80,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return rankings;
     }
 
+    // Display the rankings in the HTML
     function displayRankings(rankings) {
         let output = "";
         Object.keys(rankings).forEach(category => {
@@ -89,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="rank-item-container">
                     ${categoryRanking
                         .map(rank => `
-
                             <div class="rank-item" tabindex="0">
                                 <h3 class="${rank.rankClass}">${rank.rankText}</h3>
                                 <p class="rank-number"><strong>${rank.answer}</strong></p>
@@ -107,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const themeToggle = document.getElementById("themeToggle");
 
+    // Retrieve the saved theme from local storage (if any)
     const savedTheme = localStorage.getItem("theme") || "default";
     if (savedTheme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -119,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("theme", selectedTheme);
     });
 
+    // Filter data based on selected branch
     const branchSelect = document.getElementById("branchSelect");
     branchSelect.addEventListener("change", () => {
         const selectedBranch = branchSelect.value;
@@ -127,5 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         displayRankings(rankings);
     });
 
+    // Load the data when the page is ready
     loadData();
 });

@@ -57,3 +57,9 @@ Will implement GitHub Pages today
 
 Removed "DevNote.md" because no one needed it
 Removed "TODO.md" because Git Projects is more efficient
+
+## 24/01/2025
+
+Better Graphics
+
+Scrapped Graphical Viewing (for now)

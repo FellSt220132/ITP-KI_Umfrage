@@ -211,18 +211,6 @@ input:checked + .slider:before {
     width: 100%;
 }
 
-.left-rank {
-    order: 1;
-}
-
-.center-rank {
-    order: 2;
-}
-
-.right-rank {
-    order: 3;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .rank-item-container {
