@@ -1,3 +1,7 @@
+# Version Log
+
+## Website
+
 ### ALPHA
 
 #### Version A-1.0
@@ -29,3 +33,15 @@
 #### Version B-1.6
 
 + Now with Filter for Answers (Client Side)
+
+### RELEASES
+
+#### Version R-1.0
+
++ Added Graphics
+
++ First Full Version
+
+  + All planned features added
+
++ Some Bug fixes, but this Version should be able to handle everything needed
