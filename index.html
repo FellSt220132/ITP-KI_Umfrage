@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Results</title>
+    <title>Umfrage Ergebnisse</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Survey Results</h1>
-            <p class="subheading">Update of Results until one day after sending Emails out</p>
+            <h1>Umfrage Ergebnisse</h1>
+            <p class="subheading">Aktualisierung der Ergebnisse bis einen Tag nach dem Versenden der E-Mails.</p>
         </header>
 
         <div class="filter-container">
@@ -29,14 +29,24 @@
         </div>
 
         <div class="theme-switcher">
-            <label for="themeToggle">Dark Mode:</label>
+            <label for="themeToggle">Dunkelmodus:</label>
             <label class="switch">
                 <input type="checkbox" id="themeToggle">
                 <span class="slider round"></span>
             </label>
         </div>
 
-        <section id="ranking" class="ranking-container"></section>
+        <section id="ranking" class="ranking-container">
+            <!-- Link zu den separaten Seiten für die grafische Darstellung -->
+            <div class="category">
+                <h2>Wie wahrscheinlich ist es, dass sie eine KI im Unterricht verwenden?</h2>
+                <p><a href="question-4.html" class="question-link">Grafische Darstellung ansehen</a></p>
+            </div>
+            <div class="category">
+                <h2>Welches dieser KI-Tools nutzen sie am häufigsten?</h2>
+                <p><a href="question-5.html" class="question-link">Grafische Darstellung ansehen</a></p>
+            </div>
+        </section>
     </div>
 
     <script src="script.js"></script>
