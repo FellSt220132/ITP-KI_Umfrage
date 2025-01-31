@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const jsonFilePath = "data.json"; // Path to your JSON data file
+    const jsonFilePath = "data.json"; // JSON File (Converted!)
     let allData = [];
     let filteredData = [];
 
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return rankings;
     }
 
-    // Display the rankings in the HTML
+    // Display the rankings
     function displayRankings(rankings) {
         let output = "";
         Object.keys(rankings).forEach(category => {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const themeToggle = document.getElementById("themeToggle");
 
-    // Retrieve the saved theme from local storage (if any)
+    // Dark / Light Mode
     const savedTheme = localStorage.getItem("theme") || "default";
     if (savedTheme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("theme", selectedTheme);
     });
 
-    // Filter data based on selected branch
+    // Filter data
     const branchSelect = document.getElementById("branchSelect");
     branchSelect.addEventListener("change", () => {
         const selectedBranch = branchSelect.value;
@@ -130,6 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         displayRankings(rankings);
     });
 
-    // Load the data when the page is ready
+    // Load the data
     loadData();
 });
