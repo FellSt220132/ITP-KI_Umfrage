@@ -45,3 +45,9 @@
   + All planned features added
 
 + Some Bug fixes, but this Version should be able to handle everything needed
+
+#### Version R-1.1
+
++ Removed "Skeleton" of a removed function
+
+  + No change for user, just had a personal Vendetta against this bug :)
