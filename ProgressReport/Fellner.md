@@ -63,3 +63,11 @@ Removed "TODO.md" because Git Projects is more efficient
 Better Graphics
 
 Scrapped Graphical Viewing (for now)
+
+## No specific date
+
+Kept working on minor issues since then. Look at GitHub Issues for some of them.
+
+## 07/02/2025
+
+Writing Project Report / Finished Fellner.md
