@@ -12,6 +12,7 @@ Website die die Ergebnisse des Forms ausgibt. Nebenprojekt zur eigentlichen Aufg
   + Repo Verwaltung
 
 + Victor Wong
+  + Ideen findung  
 
 ## Notes
 
