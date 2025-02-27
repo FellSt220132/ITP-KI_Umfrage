@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     };
                 } else {
                     return {
-                        answer: "The early Worm catches the Bird  - Sun Tzu",
+                        answer: "...",
                         count: 0,
                         percentage: "0.0",
                         rankClass: rank.class,
