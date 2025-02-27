@@ -71,3 +71,9 @@ Kept working on minor issues since then. Look at GitHub Issues for some of them.
 ## 07/02/2025
 
 Writing Project Report / Finished Fellner.md
+
+## 27/02/2025
+
+FINISHED PROJECT!!!
+
+Check Report again
